@@ -1,0 +1,36 @@
+// ============================================================
+// kitstrap2 — Spacing Utilities
+// .kit-p-{size}, .kit-m-{size}, .kit-p-{dir}-{size}, etc.
+// ============================================================
+
+@use '../variables' as v;
+
+// Generate spacing utilities using @each loops
+@each $size-name, $size-value in v.$kit-spacings {
+  // padding: all directions
+  .kit-p-#{$size-name}   { padding: #{$size-value} !important; }
+
+  // margin: all directions
+  .kit-m-#{$size-name}   { margin: #{$size-value} !important; }
+
+  // per-direction
+  @each $dir-name, $dir-prop in v.$kit-directions {
+    .kit-p-#{$dir-name}-#{$size-name} { padding-#{$dir-prop}: #{$size-value} !important; }
+    .kit-m-#{$dir-name}-#{$size-name} { margin-#{$dir-prop}: #{$size-value} !important; }
+  }
+
+  // axis shortcuts
+  .kit-p-x-#{$size-name} { padding-left: #{$size-value} !important; padding-right: #{$size-value} !important; }
+  .kit-p-y-#{$size-name} { padding-top: #{$size-value} !important; padding-bottom: #{$size-value} !important; }
+  .kit-m-x-#{$size-name} { margin-left: #{$size-value} !important; margin-right: #{$size-value} !important; }
+  .kit-m-y-#{$size-name} { margin-top: #{$size-value} !important; margin-bottom: #{$size-value} !important; }
+}
+
+// Auto margin
+.kit-m-auto       { margin: auto !important; }
+.kit-m-x-auto     { margin-left: auto !important; margin-right: auto !important; }
+.kit-m-y-auto     { margin-top: auto !important; margin-bottom: auto !important; }
+.kit-m-t-auto     { margin-top: auto !important; }
+.kit-m-b-auto     { margin-bottom: auto !important; }
+.kit-m-l-auto     { margin-left: auto !important; }
+.kit-m-r-auto     { margin-right: auto !important; }

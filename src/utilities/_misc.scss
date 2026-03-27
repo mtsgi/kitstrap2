@@ -1,0 +1,44 @@
+// ============================================================
+// kitstrap2 — Miscellaneous Utilities
+// ============================================================
+
+.kit-scroll {
+  overflow: auto !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+.kit-scroll-x   { overflow-x: auto !important; overflow-y: hidden !important; }
+.kit-scroll-y   { overflow-x: hidden !important; overflow-y: auto !important; }
+.kit-overflow-hidden { overflow: hidden !important; }
+
+.kit-selectable {
+  cursor: text !important;
+  user-select: text !important;
+
+  &::selection {
+    background: var(--kit-selection-bg);
+    color: var(--kit-selection-fg);
+  }
+}
+
+.kit-init {
+  cursor: default !important;
+}
+
+.kit-pointer {
+  cursor: pointer !important;
+}
+
+// Border radius shortcuts
+.kit-rounded-s    { border-radius: var(--kit-radius-s) !important; }
+.kit-rounded-m    { border-radius: var(--kit-radius-m) !important; }
+.kit-rounded-l    { border-radius: var(--kit-radius-l) !important; }
+.kit-rounded-full { border-radius: var(--kit-radius-full) !important; }
+.kit-rounded-0    { border-radius: 0 !important; }
+
+// Opacity
+.kit-opacity-0    { opacity: 0 !important; }
+.kit-opacity-25   { opacity: 0.25 !important; }
+.kit-opacity-50   { opacity: 0.5 !important; }
+.kit-opacity-75   { opacity: 0.75 !important; }
+.kit-opacity-100  { opacity: 1 !important; }

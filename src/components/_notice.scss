@@ -1,0 +1,63 @@
+// ============================================================
+// kitstrap2 — Notice & Flash Components
+// .kit-notice, .kit-flash
+// ============================================================
+
+@use '../variables' as v;
+@use '../functions' as f;
+
+// ---------- Notice ----------
+.kit-notice {
+  display: block;
+  padding: var(--kit-space-s) var(--kit-space-m);
+  border-left: 4px solid var(--kit-color-primary);
+  background: var(--kit-bg-secondary);
+  color: var(--kit-fg);
+  border-radius: 0 var(--kit-radius-s) var(--kit-radius-s) 0;
+  margin: var(--kit-space-s) 0;
+
+  // Semantic variants
+  &.-success {
+    border-left-color: var(--kit-color-success);
+    background: color-mix(in srgb, var(--kit-color-success) 10%, var(--kit-bg-secondary));
+  }
+
+  &.-warning {
+    border-left-color: var(--kit-color-warning);
+    background: color-mix(in srgb, var(--kit-color-warning) 10%, var(--kit-bg-secondary));
+  }
+
+  &.-danger {
+    border-left-color: var(--kit-color-danger);
+    background: color-mix(in srgb, var(--kit-color-danger) 10%, var(--kit-bg-secondary));
+  }
+
+  &.-info {
+    border-left-color: var(--kit-color-info);
+    background: color-mix(in srgb, var(--kit-color-info) 10%, var(--kit-bg-secondary));
+  }
+
+  &.-dark {
+    background: var(--kit-bg-tertiary);
+    color: var(--kit-fg);
+    border-left-color: var(--kit-fg-tertiary);
+  }
+}
+
+// ---------- Flash ----------
+.kit-flash {
+  display: block;
+  padding: var(--kit-space-s) var(--kit-space-m);
+  background: var(--kit-color-primary);
+  color: var(--kit-color-primary-fg);
+  text-align: center;
+  font-weight: var(--kit-font-weight-bold);
+
+  // Semantic variants
+  @each $name, $value in v.$kit-semantic-colors {
+    &.-#{$name} {
+      background: var(--kit-color-#{$name});
+      color: var(--kit-color-#{$name}-fg);
+    }
+  }
+}

@@ -1,0 +1,45 @@
+// ============================================================
+// kitstrap2 — Sizing Utilities
+// .kit-width-{n}, .kit-height-*, .kit-fit, etc.
+// ============================================================
+
+@use '../variables' as v;
+
+// Width percentages (0–100 in 5% steps)
+@each $w in v.$kit-widths {
+  .kit-width-#{$w} {
+    box-sizing: border-box;
+    width: #{$w}#{'%'} !important;
+  }
+}
+
+.kit-width-auto   { width: auto !important; }
+
+// Max-width
+.kit-max-width-sm   { max-width: 576px !important; }
+.kit-max-width-md   { max-width: 768px !important; }
+.kit-max-width-lg   { max-width: 992px !important; }
+.kit-max-width-xl   { max-width: 1200px !important; }
+.kit-max-width-full { max-width: 100% !important; }
+.kit-max-width-none { max-width: none !important; }
+
+// Min-width
+.kit-min-width-0    { min-width: 0 !important; }
+.kit-min-width-full { min-width: 100% !important; }
+
+// Fit (width: 100%, display: block)
+.kit-fit {
+  display: block !important;
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+// Height
+.kit-height-auto    { height: auto !important; }
+.kit-height-100     { height: 100% !important; }
+.kit-height-screen  { height: 100vh !important; }
+.kit-min-height-screen { min-height: 100vh !important; }
+
+// Box sizing
+.kit-boxsize-content { box-sizing: content-box !important; }
+.kit-boxsize-border  { box-sizing: border-box !important; }

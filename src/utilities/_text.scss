@@ -1,0 +1,37 @@
+// ============================================================
+// kitstrap2 — Text Utilities
+// ============================================================
+
+// Alignment
+.kit-text-l        { text-align: left !important; }
+.kit-text-c        { text-align: center !important; }
+.kit-text-r        { text-align: right !important; }
+
+// Transform
+.kit-text-upper      { text-transform: uppercase !important; }
+.kit-text-lower      { text-transform: lowercase !important; }
+.kit-text-capitalize { text-transform: capitalize !important; }
+.kit-text-zenkaku    { font-feature-settings: "fwid" !important; }
+
+// Line height
+.kit-line-xl  { line-height: var(--kit-line-height-xl) !important; }
+.kit-line-l   { line-height: var(--kit-line-height-l) !important; }
+.kit-line-m   { line-height: var(--kit-line-height-m) !important; }
+.kit-line-s   { line-height: var(--kit-line-height-s) !important; }
+.kit-line-0   { line-height: 1 !important; }
+
+// Decoration
+.kit-text-underline    { text-decoration: underline !important; }
+.kit-text-overline     { text-decoration: overline !important; }
+.kit-text-wavy         { text-decoration: underline wavy !important; }
+.kit-text-double       { text-decoration: underline double !important; }
+.kit-text-nodecoration { text-decoration: none !important; }
+
+// Wrapping
+.kit-text-nowrap   { white-space: nowrap !important; }
+.kit-text-break    { word-break: break-all !important; }
+.kit-text-truncate {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}

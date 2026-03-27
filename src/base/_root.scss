@@ -1,0 +1,66 @@
+// ============================================================
+// kitstrap2 — Design Tokens (CSS Custom Properties)
+// Defines :root custom properties consumed by all components.
+// ============================================================
+
+@use '../variables' as v;
+@use '../functions' as f;
+
+// ---------- Light theme (default) ----------
+:root {
+  // — Font families —
+  --kit-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --kit-font-family-mono: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+
+  // — Font sizes —
+  @each $name, $value in v.$kit-font-sizes {
+    --kit-font-size-#{$name}: #{$value};
+  }
+
+  // — Font weights —
+  @each $name, $value in v.$kit-font-weights {
+    --kit-font-weight-#{$name}: #{$value};
+  }
+
+  // — Line heights —
+  @each $name, $value in v.$kit-line-heights {
+    --kit-line-height-#{$name}: #{$value};
+  }
+
+  // — Spacing —
+  @each $name, $value in v.$kit-spacings {
+    --kit-space-#{$name}: #{$value};
+  }
+
+  // — Border radius —
+  @each $name, $value in v.$kit-radii {
+    --kit-radius-#{$name}: #{$value};
+  }
+
+  // — Shadows —
+  @for $i from 0 through v.$kit-shadow-levels {
+    @if $i == 0 {
+      --kit-shadow-#{$i}: none;
+    } @else {
+      --kit-shadow-#{$i}: #{f.kit-shadow($i)};
+    }
+  }
+
+  // — Transitions —
+  --kit-transition-fast: #{v.$kit-transition-fast};
+  --kit-transition-normal: #{v.$kit-transition-normal};
+
+  // — Semantic colors —
+  @each $name, $value in v.$kit-semantic-colors {
+    --kit-color-#{$name}: #{$value};
+    --kit-color-#{$name}-light: #{f.kit-lighten($value, 20%)};
+    --kit-color-#{$name}-dark: #{f.kit-darken($value, 20%)};
+    --kit-color-#{$name}-fg: #{f.kit-contrast($value)};
+  }
+
+  // — Named colors —
+  @each $name, $value in v.$kit-named-colors {
+    --kit-color-#{$name}: #{$value};
+    --kit-color-#{$name}-fg: #{f.kit-contrast($value)};
+  }
+}

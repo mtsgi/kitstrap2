@@ -1,0 +1,38 @@
+// ============================================================
+// kitstrap2 — Badge Component
+// .kit-badge with semantic and named color variants
+// ============================================================
+
+@use '../variables' as v;
+@use '../functions' as f;
+
+.kit-badge {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: var(--kit-radius-full);
+  background: var(--kit-fg);
+  color: var(--kit-bg);
+  font-size: var(--kit-font-size-s);
+  font-weight: var(--kit-font-weight-bold);
+  line-height: var(--kit-line-height-m);
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  user-select: none;
+
+  // Semantic color variants
+  @each $name, $value in v.$kit-semantic-colors {
+    &.-#{$name} {
+      background: var(--kit-color-#{$name});
+      color: var(--kit-color-#{$name}-fg);
+    }
+  }
+
+  // Named color variants
+  @each $name, $value in v.$kit-named-colors {
+    &.-#{$name} {
+      background: var(--kit-color-#{$name});
+      color: #{f.kit-contrast($value)};
+    }
+  }
+}

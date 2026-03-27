@@ -1,0 +1,13 @@
+// ============================================================
+// kitstrap2 — Display Utilities
+// ============================================================
+
+.kit-block         { display: block !important; }
+.kit-inline-block  { display: inline-block !important; }
+.kit-inline        { display: inline !important; }
+.kit-hidden        { display: none !important; }
+.kit-nodisp,
+.kit-nd            { display: none !important; }
+.kit-visible       { visibility: visible !important; }
+.kit-invisible     { visibility: hidden !important; }
+.kit-noevents      { pointer-events: none !important; }

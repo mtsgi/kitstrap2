@@ -1,0 +1,217 @@
+// ============================================================
+// kitstrap2 — Form Components
+// .kit-textbox, .kit-toggle, .kit-input-file, .kit-formgroup
+// ============================================================
+
+@use '../variables' as v;
+@use '../mixins' as m;
+
+// ---------- Textbox ----------
+.kit-textbox {
+  display: inline-block;
+  padding: var(--kit-space-xs) var(--kit-space-s);
+  border: 1px solid var(--kit-border-color);
+  border-radius: var(--kit-radius-s);
+  background: var(--kit-bg);
+  color: var(--kit-fg);
+  font-size: var(--kit-font-size-m);
+  font-family: var(--kit-font-family);
+  line-height: var(--kit-line-height-m);
+  width: auto;
+  box-sizing: border-box;
+  cursor: text;
+  outline: none;
+  @include m.transition;
+  box-shadow: 0 0 0 1px transparent;
+
+  &:focus {
+    box-shadow: 0 0 0 3px var(--kit-focus-ring);
+    border-color: var(--kit-color-primary);
+  }
+
+  &::placeholder {
+    color: var(--kit-fg-tertiary);
+  }
+
+  // Flat
+  &.-flat {
+    border-color: transparent;
+    background: var(--kit-bg-tertiary);
+
+    &:focus {
+      background: var(--kit-bg);
+    }
+  }
+
+  // Rounded
+  &.-rounded {
+    border-radius: var(--kit-radius-full);
+    padding-left: var(--kit-space-m);
+    padding-right: var(--kit-space-m);
+  }
+
+  // Dark
+  &.-dark {
+    background: var(--kit-bg-tertiary);
+    color: var(--kit-fg);
+    border-color: var(--kit-border-color);
+  }
+
+  // Sizes
+  &.-small {
+    font-size: var(--kit-font-size-s);
+    padding: 2px var(--kit-space-xs);
+  }
+
+  &.-medium {
+    font-size: var(--kit-font-size-m);
+    padding: var(--kit-space-xs) var(--kit-space-s);
+  }
+
+  &.-large {
+    font-size: var(--kit-font-size-l);
+    padding: var(--kit-space-s) var(--kit-space-m);
+  }
+
+  // Disabled
+  &:disabled,
+  &[disabled] {
+    @include m.disabled;
+    background: var(--kit-bg-secondary);
+  }
+
+  // Selection
+  &::selection {
+    background: var(--kit-selection-bg);
+    color: var(--kit-selection-fg);
+  }
+}
+
+// Allow textarea usage
+textarea.kit-textbox {
+  resize: vertical;
+  min-height: 4em;
+}
+
+// ---------- Toggle switch ----------
+.kit-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--kit-space-s);
+  padding: var(--kit-space-s);
+  @include m.interactive;
+
+  &:hover {
+    background: var(--kit-bg-secondary);
+    border-radius: var(--kit-radius-s);
+  }
+
+  input {
+    display: none;
+
+    & + label {
+      position: relative;
+      display: inline-block;
+      width: 52px;
+      height: 28px;
+      cursor: pointer;
+      outline: none;
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: var(--kit-bg-tertiary);
+        border-radius: 28px;
+        @include m.transition(background);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 24px;
+        height: 24px;
+        background-color: #fff;
+        border-radius: 50%;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        @include m.transition(transform);
+      }
+    }
+
+    &:checked + label {
+      &::before {
+        background-color: var(--kit-color-success);
+      }
+
+      &::after {
+        transform: translateX(24px);
+      }
+    }
+
+    &:disabled + label {
+      @include m.disabled;
+    }
+  }
+}
+
+// ---------- File input ----------
+.kit-input-file {
+  display: inline-block;
+  position: relative;
+  padding: var(--kit-space-xs) var(--kit-space-s);
+  border: 1px solid var(--kit-border-color);
+  border-radius: var(--kit-radius-s);
+  background: var(--kit-bg-secondary);
+  color: var(--kit-fg);
+  @include m.interactive;
+  @include m.transition;
+
+  &::before {
+    content: "📁";
+    margin-right: var(--kit-space-xs);
+  }
+
+  &:hover {
+    background: var(--kit-bg);
+    box-shadow: var(--kit-shadow-1);
+  }
+
+  // Hide native input, overlay clickable area
+  input[type="file"] {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+}
+
+// ---------- Form group ----------
+.kit-formgroup {
+  display: inline-flex;
+  flex-wrap: wrap;
+
+  > .kit-button,
+  > .kit-textbox {
+    border-radius: 0;
+
+    &:first-child {
+      border-radius: var(--kit-radius-s) 0 0 var(--kit-radius-s);
+    }
+
+    &:last-child {
+      border-radius: 0 var(--kit-radius-s) var(--kit-radius-s) 0;
+    }
+
+    &:only-child {
+      border-radius: var(--kit-radius-s);
+    }
+
+    &:not(:first-child) {
+      border-left-width: 0;
+    }
+  }
+}

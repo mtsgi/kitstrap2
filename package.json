@@ -1,0 +1,28 @@
+{
+  "name": "kitstrap2",
+  "version": "2.0.0",
+  "type": "module",
+  "style": "./dist/kitstrap2.css",
+  "exports": {
+    ".": "./dist/kitstrap2.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "sass": "^1.98.0",
+    "typescript": "~5.9.3",
+    "vite": "^8.0.1",
+    "vitepress": "^1.6.0"
+  },
+  "volta": {
+    "node": "24.12.0"
+  }
+}

@@ -1,0 +1,41 @@
+// ============================================================
+// kitstrap2 — SCSS Functions
+// ============================================================
+
+@use 'sass:color';
+@use 'sass:math';
+
+/// Lighten a color by mixing with white
+@function kit-lighten($clr, $amount: 15%) {
+  @return color.mix(white, $clr, $amount);
+}
+
+/// Darken a color by mixing with black
+@function kit-darken($clr, $amount: 15%) {
+  @return color.mix(black, $clr, $amount);
+}
+
+/// Get a readable foreground color (white or black) for a given background
+@function kit-contrast($bg) {
+  $r: color.channel($bg, "red", $space: rgb);
+  $g: color.channel($bg, "green", $space: rgb);
+  $b: color.channel($bg, "blue", $space: rgb);
+  $luminance: ($r * 0.299 + $g * 0.587 + $b * 0.114);
+  @if $luminance > 160 {
+    @return #333;
+  } @else {
+    @return #fff;
+  }
+}
+
+/// Generate a shadow value for a given level (1–10)
+@function kit-shadow($level) {
+  $blur: $level * 2px;
+  @if $level <= 3 {
+    @return 0 1px $blur 0 rgba(0, 0, 0, 0.25);
+  } @else if $level <= 6 {
+    @return 0 2px $blur 0 rgba(0, 0, 0, 0.25);
+  } @else {
+    @return 0 3px $blur 0 rgba(0, 0, 0, 0.25);
+  }
+}

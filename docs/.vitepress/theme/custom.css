@@ -1,0 +1,66 @@
+/* ============================================================
+ * Sync kitstrap2 dark mode with VitePress theme toggle
+ *
+ * VitePress adds `html.dark` when dark mode is active.
+ * kitstrap2 uses `@media (prefers-color-scheme: dark)` by default,
+ * which ignores the VitePress toggle.
+ *
+ * Fix:
+ *   1. If VitePress is in LIGHT mode (no .dark) but OS is dark,
+ *      restore the light tokens to cancel out the media query.
+ *   2. If VitePress is in DARK mode (.dark), apply dark tokens
+ *      unconditionally regardless of OS preference.
+ * ============================================================ */
+
+/* 1. Restore light tokens when VitePress overrides to light mode */
+@media (prefers-color-scheme: dark) {
+  html:not(.dark) body {
+    --kit-bg: #ffffff;
+    --kit-bg-secondary: #f5f5f5;
+    --kit-bg-tertiary: #e8e8e8;
+    --kit-fg: #3d3d3d;
+    --kit-fg-secondary: #6c6c6c;
+    --kit-fg-tertiary: #909090;
+    --kit-border-color: #d0d0d0;
+    --kit-border-color-light: #e0e0e0;
+    --kit-selection-bg: rgba(30, 143, 255, 0.6);
+    --kit-selection-fg: #fff;
+    --kit-focus-ring: rgba(30, 143, 255, 0.35);
+    --kit-code-bg: #f4f4f4;
+    --kit-blockquote-border: #d0d0d0;
+  }
+}
+
+/* 2. Apply dark tokens when VitePress enables dark mode */
+html.dark body {
+  --kit-bg: #1a1a2e;
+  --kit-bg-secondary: #252540;
+  --kit-bg-tertiary: #2f2f4a;
+  --kit-fg: #e0e0e0;
+  --kit-fg-secondary: #a0a0b0;
+  --kit-fg-tertiary: #707080;
+  --kit-border-color: #404060;
+  --kit-border-color-light: #353550;
+  --kit-selection-bg: rgba(30, 143, 255, 0.5);
+  --kit-selection-fg: #fff;
+  --kit-focus-ring: rgba(100, 160, 255, 0.4);
+  --kit-code-bg: #252540;
+  --kit-blockquote-border: #505070;
+}
+
+/* ============================================================
+ * Preview block styles
+ * ============================================================ */
+
+.preview {
+  padding: 1.5rem;
+  border: 1px solid var(--vp-c-border);
+  border-radius: 8px 8px 0 0;
+  margin: 1rem 0 0;
+}
+
+.preview + div[class*='language-'] {
+  margin-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}

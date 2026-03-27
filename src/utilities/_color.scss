@@ -1,0 +1,43 @@
+// ============================================================
+// kitstrap2 — Color Utilities
+// .kit-c-{name} for text color, .kit-bgc-{name} for background
+// ============================================================
+
+@use '../variables' as v;
+@use '../functions' as f;
+
+// ---------- Semantic colors ----------
+@each $name, $value in v.$kit-semantic-colors {
+  .kit-c-#{$name} {
+    color: var(--kit-color-#{$name}) !important;
+  }
+
+  .kit-bgc-#{$name} {
+    background-color: var(--kit-color-#{$name}) !important;
+    color: var(--kit-color-#{$name}-fg) !important;
+  }
+}
+
+// ---------- Named colors ----------
+@each $name, $value in v.$kit-named-colors {
+  .kit-c-#{$name} {
+    color: var(--kit-color-#{$name}) !important;
+  }
+
+  .kit-bgc-#{$name} {
+    background-color: var(--kit-color-#{$name}) !important;
+    color: #{f.kit-contrast($value)} !important;
+  }
+}
+
+// ---------- Theme colors ----------
+.kit-c-fg          { color: var(--kit-fg) !important; }
+.kit-c-fg-secondary { color: var(--kit-fg-secondary) !important; }
+.kit-c-white       { color: #fff !important; }
+.kit-c-inherit     { color: inherit !important; }
+
+.kit-bgc-bg        { background-color: var(--kit-bg) !important; }
+.kit-bgc-secondary { background-color: var(--kit-bg-secondary) !important; }
+.kit-bgc-tertiary  { background-color: var(--kit-bg-tertiary) !important; }
+.kit-bgc-white     { background-color: #fff !important; }
+.kit-bgc-transparent { background-color: transparent !important; }

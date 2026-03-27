@@ -1,0 +1,25 @@
+// ============================================================
+// kitstrap2 — Font Utilities
+// ============================================================
+
+@use '../variables' as v;
+
+// Font sizes
+@each $name, $value in v.$kit-font-sizes {
+  .kit-font-#{$name} {
+    font-size: var(--kit-font-size-#{$name}) !important;
+  }
+}
+
+// Aliases
+.kit-font-xxlarge { font-size: var(--kit-font-size-xxl) !important; }
+.kit-font-xlarge  { font-size: var(--kit-font-size-xl) !important; }
+.kit-font-large   { font-size: var(--kit-font-size-l) !important; }
+.kit-font-medium  { font-size: var(--kit-font-size-m) !important; }
+.kit-font-small   { font-size: var(--kit-font-size-s) !important; }
+.kit-font-xsmall  { font-size: var(--kit-font-size-xs) !important; }
+
+// Font weights
+.kit-font-bold    { font-weight: var(--kit-font-weight-bold) !important; }
+.kit-font-normal  { font-weight: var(--kit-font-weight-normal) !important; }
+.kit-font-thin    { font-weight: var(--kit-font-weight-thin) !important; }

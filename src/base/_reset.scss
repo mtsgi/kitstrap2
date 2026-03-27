@@ -1,0 +1,75 @@
+// ============================================================
+// kitstrap2 — Base Reset
+// Modern CSS reset with design-token integration.
+// ============================================================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
+  tab-size: 4;
+}
+
+body {
+  margin: 0;
+  font-family: var(--kit-font-family);
+  font-size: var(--kit-font-size-m);
+  font-weight: var(--kit-font-weight-normal);
+  line-height: var(--kit-line-height-m);
+  color: var(--kit-fg);
+  background-color: var(--kit-bg);
+  cursor: default;
+}
+
+::selection {
+  background: var(--kit-selection-bg);
+  color: var(--kit-selection-fg);
+}
+
+// Inherit fonts for form elements
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+// Remove default list styles
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+// Media defaults
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+// Remove built-in form typographic inconsistencies
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+// Anchor defaults
+a {
+  color: var(--kit-color-primary);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

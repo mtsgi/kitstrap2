@@ -1,0 +1,12 @@
+// ============================================================
+// kitstrap2 — Shadow Utilities
+// .kit-shadow-{0..10}
+// ============================================================
+
+@use '../variables' as v;
+
+@for $i from 0 through v.$kit-shadow-levels {
+  .kit-shadow-#{$i} {
+    box-shadow: var(--kit-shadow-#{$i}) !important;
+  }
+}

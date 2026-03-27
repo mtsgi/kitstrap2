@@ -1,0 +1,31 @@
+// ============================================================
+// kitstrap2 — Dark Theme Tokens
+// ============================================================
+
+@mixin dark-tokens {
+  --kit-bg: #1a1a2e;
+  --kit-bg-secondary: #252540;
+  --kit-bg-tertiary: #2f2f4a;
+  --kit-fg: #e0e0e0;
+  --kit-fg-secondary: #a0a0b0;
+  --kit-fg-tertiary: #707080;
+  --kit-border-color: #404060;
+  --kit-border-color-light: #353550;
+  --kit-selection-bg: rgba(30, 143, 255, 0.5);
+  --kit-selection-fg: #fff;
+  --kit-focus-ring: rgba(100, 160, 255, 0.4);
+  --kit-code-bg: #252540;
+  --kit-blockquote-border: #505070;
+}
+
+// Auto: follows OS preference
+@media (prefers-color-scheme: dark) {
+  :root:not(.kit-light) {
+    @include dark-tokens;
+  }
+}
+
+// Manual: .kit-dark class on any ancestor
+.kit-dark {
+  @include dark-tokens;
+}

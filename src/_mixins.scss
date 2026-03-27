@@ -1,0 +1,49 @@
+// ============================================================
+// kitstrap2 — SCSS Mixins
+// ============================================================
+
+@use 'variables' as v;
+
+/// Interactive element base (removes default appearance, sets cursor)
+@mixin interactive {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/// Disabled state
+@mixin disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/// Responsive breakpoint (min-width)
+@mixin breakpoint($name) {
+  $bp: map-get(v.$kit-breakpoints, $name);
+  @if $bp {
+    @media (min-width: $bp) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint: #{$name}";
+  }
+}
+
+/// Transition shorthand
+@mixin transition($properties: all, $duration: v.$kit-transition-normal) {
+  transition: $properties $duration ease;
+}
+
+/// Focus ring
+@mixin focus-ring($color: var(--kit-color-primary)) {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, #{$color} 40%, transparent);
+}
+
+/// Text truncation (single line)
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

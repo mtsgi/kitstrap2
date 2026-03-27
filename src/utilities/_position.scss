@@ -1,0 +1,9 @@
+// ============================================================
+// kitstrap2 — Position Utilities
+// ============================================================
+
+.kit-static   { position: static !important; }
+.kit-relative { position: relative !important; }
+.kit-absolute { position: absolute !important; }
+.kit-fixed    { position: fixed !important; }
+.kit-sticky   { position: sticky !important; top: 0; }

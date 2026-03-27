@@ -1,0 +1,110 @@
+// ============================================================
+// kitstrap2 — Typography Component
+// .kit-title, .kit-sub, default heading/code/blockquote styles
+// ============================================================
+
+// ---------- Kit title ----------
+.kit-title {
+  display: block;
+  font-size: var(--kit-font-size-xxl);
+  font-weight: var(--kit-font-weight-bold);
+  line-height: var(--kit-line-height-s);
+  margin: 0 0 0.5em;
+  color: var(--kit-fg);
+}
+
+// ---------- Kit sub ----------
+.kit-sub {
+  display: block;
+  font-size: var(--kit-font-size-s);
+  color: var(--kit-fg-secondary);
+  margin: 0.25em 0;
+}
+
+// ---------- Default heading styles ----------
+h1 {
+  font-size: 2rem;
+  font-weight: var(--kit-font-weight-bold);
+  line-height: var(--kit-line-height-s);
+  margin: 0.67em 0;
+  color: var(--kit-fg);
+  border-bottom: 1px solid var(--kit-border-color-light);
+  padding-bottom: 0.3em;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: var(--kit-font-weight-bold);
+  line-height: var(--kit-line-height-s);
+  margin: 0.75em 0;
+  color: var(--kit-fg);
+  border-bottom: 1px solid var(--kit-border-color-light);
+  padding-bottom: 0.25em;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: var(--kit-font-weight-bold);
+  line-height: var(--kit-line-height-s);
+  margin: 0.8em 0;
+  color: var(--kit-fg);
+}
+
+h4 {
+  font-size: 1rem;
+  font-weight: var(--kit-font-weight-bold);
+  line-height: var(--kit-line-height-m);
+  margin: 0.8em 0;
+  color: var(--kit-fg);
+}
+
+h5 {
+  font-size: var(--kit-font-size-s);
+  font-weight: var(--kit-font-weight-bold);
+  line-height: var(--kit-line-height-m);
+  margin: 0.8em 0;
+  color: var(--kit-fg-secondary);
+}
+
+// ---------- Code ----------
+pre {
+  padding: var(--kit-space-m);
+  background: var(--kit-code-bg);
+  border-radius: var(--kit-radius-s);
+  overflow-x: auto;
+  font-family: var(--kit-font-family-mono);
+  font-size: var(--kit-font-size-s);
+  line-height: var(--kit-line-height-m);
+  color: var(--kit-fg);
+}
+
+code {
+  font-family: var(--kit-font-family-mono);
+  font-size: 0.875em;
+  padding: 0.15em 0.4em;
+  background: var(--kit-code-bg);
+  border-radius: var(--kit-radius-s);
+  color: var(--kit-fg);
+}
+
+pre code {
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  font-size: inherit;
+}
+
+// ---------- Blockquote ----------
+blockquote {
+  margin: 1em 0;
+  padding: var(--kit-space-s) var(--kit-space-m);
+  border-left: 4px solid var(--kit-blockquote-border);
+  color: var(--kit-fg-secondary);
+}
+
+// ---------- Horizontal rule ----------
+hr {
+  border: none;
+  border-top: 1px solid var(--kit-border-color-light);
+  margin: var(--kit-space-l) 0;
+}

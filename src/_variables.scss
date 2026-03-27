@@ -1,0 +1,117 @@
+// ============================================================
+// kitstrap2 — SCSS Variables
+// Build-time variables used for loop generation and mixins.
+// Runtime theming uses CSS custom properties (see base/_root.scss).
+// ============================================================
+
+// ---------- Semantic color names ----------
+$kit-semantic-colors: (
+  "primary":   #1e8fff,
+  "secondary": #6c757d,
+  "success":   #28a745,
+  "warning":   #f0ad4e,
+  "danger":    #dc3545,
+  "info":      #17a2b8,
+) !default;
+
+// ---------- Named colors (kitstrap legacy compatible) ----------
+$kit-named-colors: (
+  "orange":      orange,
+  "dodgerblue":  dodgerblue,
+  "deeppink":    deeppink,
+  "limegreen":   limegreen,
+  "crimson":     crimson,
+  "green":       green,
+  "silver":      silver,
+  "black":       #222,
+) !default;
+
+// ---------- All colors (merged) ----------
+@use 'sass:map';
+$kit-colors: map.merge($kit-semantic-colors, $kit-named-colors);
+
+// ---------- Spacing scale ----------
+$kit-spacings: (
+  "0":   0,
+  "xs":  4px,
+  "s":   8px,
+  "m":   12px,
+  "l":   16px,
+  "xl":  24px,
+  "xxl": 32px,
+) !default;
+
+// ---------- Font sizes ----------
+$kit-font-sizes: (
+  "xxl": 2rem,
+  "xl":  1.5rem,
+  "l":   1.25rem,
+  "m":   1rem,
+  "s":   0.875rem,
+  "xs":  0.75rem,
+  "0":   0,
+) !default;
+
+// ---------- Font weights ----------
+$kit-font-weights: (
+  "bold":   700,
+  "normal": 400,
+  "thin":   300,
+) !default;
+
+// ---------- Line heights ----------
+$kit-line-heights: (
+  "xl": 2,
+  "l":  1.75,
+  "m":  1.5,
+  "s":  1.25,
+  "0":  1,
+) !default;
+
+// ---------- Border radius ----------
+$kit-radii: (
+  "s":    4px,
+  "m":    8px,
+  "l":    16px,
+  "full": 9999px,
+) !default;
+
+// ---------- Shadows ----------
+$kit-shadow-color: rgba(0, 0, 0, 0.25) !default;
+
+// ---------- Breakpoints ----------
+$kit-breakpoints: (
+  "sm":  576px,
+  "md":  768px,
+  "lg":  992px,
+  "xl":  1200px,
+  "xxl": 1400px,
+) !default;
+
+// ---------- Transition durations ----------
+$kit-transition-fast:   0.15s !default;
+$kit-transition-normal: 0.2s  !default;
+
+// ---------- Button sizes ----------
+$kit-button-sizes: (
+  "xsmall":  (font-size: 0.625rem, padding: 1px 4px),
+  "small":   (font-size: 0.75rem,  padding: 2px 8px),
+  "medium":  (font-size: 1rem,     padding: 4px 16px),
+  "large":   (font-size: 1.25rem,  padding: 6px 20px),
+  "xlarge":  (font-size: 1.5rem,   padding: 8px 24px),
+  "xxlarge": (font-size: 2rem,     padding: 10px 32px),
+) !default;
+
+// ---------- Width percentages ----------
+$kit-widths: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100) !default;
+
+// ---------- Shadow levels ----------
+$kit-shadow-levels: 10 !default;
+
+// ---------- Spacing directions ----------
+$kit-directions: (
+  "t": "top",
+  "b": "bottom",
+  "l": "left",
+  "r": "right",
+) !default;

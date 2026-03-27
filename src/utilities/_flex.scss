@@ -1,0 +1,56 @@
+// ============================================================
+// kitstrap2 — Flexbox Utilities
+// ============================================================
+
+@use '../variables' as v;
+
+.kit-flex             { display: flex !important; }
+.kit-inline-flex      { display: inline-flex !important; }
+
+// Direction
+.kit-flex-row             { flex-direction: row !important; }
+.kit-flex-row-reverse     { flex-direction: row-reverse !important; }
+.kit-flex-column          { flex-direction: column !important; }
+.kit-flex-column-reverse  { flex-direction: column-reverse !important; }
+
+// Wrap
+.kit-flex-wrap            { flex-wrap: wrap !important; }
+.kit-flex-nowrap          { flex-wrap: nowrap !important; }
+.kit-flex-wrap-reverse    { flex-wrap: wrap-reverse !important; }
+
+// Grow & shrink
+.kit-flex-grow            { flex-grow: 1 !important; }
+.kit-flex-shrink          { flex-shrink: 1 !important; }
+.kit-flex-noshrink        { flex-shrink: 0 !important; }
+
+// Justify content
+.kit-flex-start           { justify-content: flex-start !important; }
+.kit-flex-end             { justify-content: flex-end !important; }
+.kit-flex-center          { justify-content: center !important; }
+.kit-flex-between         { justify-content: space-between !important; }
+.kit-flex-around          { justify-content: space-around !important; }
+.kit-flex-evenly          { justify-content: space-evenly !important; }
+
+// Align items
+.kit-flex-top             { align-items: flex-start !important; }
+.kit-flex-middle          { align-items: center !important; }
+.kit-flex-bottom          { align-items: flex-end !important; }
+.kit-flex-stretch         { align-items: stretch !important; }
+.kit-flex-baseline        { align-items: baseline !important; }
+
+// Align content
+.kit-flex-fit             { flex: 1 1 0% !important; }
+
+// Order
+.kit-flex-order-1         { order: 1 !important; }
+.kit-flex-order-2         { order: 2 !important; }
+.kit-flex-order-3         { order: 3 !important; }
+.kit-flex-order-first     { order: -1 !important; }
+.kit-flex-order-last      { order: 999 !important; }
+
+// Gap utilities
+@each $name, $value in v.$kit-spacings {
+  .kit-gap-#{$name} {
+    gap: #{$value} !important;
+  }
+}

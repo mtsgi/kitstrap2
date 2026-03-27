@@ -1,0 +1,187 @@
+// ============================================================
+// kitstrap2 — Button Component
+// .kit-button, .-alt, .-flat, .-rounded, color variants, sizes,
+// disabled state, and .kit-buttongroup
+// ============================================================
+
+@use 'sass:map';
+@use '../variables' as v;
+@use '../functions' as f;
+@use '../mixins' as m;
+
+// ---------- Base button ----------
+.kit-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--kit-space-xs);
+  padding: 2px 8px;
+  border: 1px solid var(--kit-border-color);
+  border-radius: var(--kit-radius-s);
+  background: var(--kit-bg-secondary);
+  color: var(--kit-fg);
+  font-size: var(--kit-font-size-m);
+  line-height: var(--kit-line-height-m);
+  text-decoration: none;
+  vertical-align: middle;
+  @include m.interactive;
+  @include m.transition;
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1px 1px 0 rgba(255, 255, 255, 0.6);
+
+  &:hover {
+    background: var(--kit-bg);
+    box-shadow: var(--kit-shadow-2);
+  }
+
+  &:active {
+    transition: none;
+    transform: translateY(1px);
+    box-shadow: var(--kit-shadow-1);
+  }
+
+  &:focus-visible {
+    @include m.focus-ring;
+  }
+
+  // ---------- Alt variant (outline) ----------
+  &.-alt {
+    background: transparent;
+    border: 2px solid var(--kit-color-primary);
+    color: var(--kit-color-primary);
+    font-weight: var(--kit-font-weight-bold);
+    box-shadow: none;
+
+    &:hover {
+      background: var(--kit-color-primary);
+      color: var(--kit-color-primary-fg);
+      box-shadow: var(--kit-shadow-2);
+    }
+  }
+
+  // ---------- Flat variant ----------
+  &.-flat {
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+
+    &:hover {
+      background: var(--kit-bg-tertiary);
+      box-shadow: none;
+    }
+  }
+
+  // ---------- Rounded variant ----------
+  &.-rounded {
+    border-radius: var(--kit-radius-full);
+  }
+
+  // ---------- Semantic color variants ----------
+  @each $name, $value in v.$kit-semantic-colors {
+    &.-#{$name} {
+      background: var(--kit-color-#{$name});
+      border-color: var(--kit-color-#{$name}-dark);
+      color: var(--kit-color-#{$name}-fg);
+      box-shadow: none;
+
+      &:hover {
+        background: var(--kit-color-#{$name}-dark);
+        box-shadow: var(--kit-shadow-2);
+      }
+
+      // Alt + color
+      &.-alt {
+        background: transparent;
+        border-color: var(--kit-color-#{$name});
+        color: var(--kit-color-#{$name});
+
+        &:hover {
+          background: var(--kit-color-#{$name});
+          color: var(--kit-color-#{$name}-fg);
+        }
+      }
+    }
+  }
+
+  // ---------- Named color variants ----------
+  @each $name, $value in v.$kit-named-colors {
+    &.-#{$name} {
+      $fg: f.kit-contrast($value);
+      background: var(--kit-color-#{$name});
+      border-color: #{f.kit-darken($value, 15%)};
+      color: #{$fg};
+      box-shadow: none;
+
+      &:hover {
+        background: #{f.kit-darken($value, 10%)};
+        box-shadow: var(--kit-shadow-2);
+      }
+
+      // Alt + named color
+      &.-alt {
+        background: transparent;
+        border-color: var(--kit-color-#{$name});
+        color: var(--kit-color-#{$name});
+
+        &:hover {
+          background: var(--kit-color-#{$name});
+          color: #{$fg};
+        }
+      }
+    }
+  }
+
+  // ---------- Sizes ----------
+  @each $name, $props in v.$kit-button-sizes {
+    &.-#{$name} {
+      font-size: map.get($props, font-size);
+      padding: map.get($props, padding);
+    }
+  }
+
+  // ---------- Disabled ----------
+  &.-disabled,
+  &:disabled {
+    @include m.disabled;
+  }
+}
+
+// Ensure native button/input reset
+button.kit-button,
+input[type="submit"].kit-button,
+input[type="button"].kit-button {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid var(--kit-border-color);
+
+  &:focus {
+    outline: none;
+  }
+}
+
+// ---------- Button group ----------
+.kit-buttongroup {
+  display: inline-flex;
+  flex-wrap: wrap;
+
+  > .kit-button {
+    border-radius: 0;
+    margin: 0;
+
+    &:first-child {
+      border-radius: var(--kit-radius-s) 0 0 var(--kit-radius-s);
+    }
+
+    &:last-child {
+      border-radius: 0 var(--kit-radius-s) var(--kit-radius-s) 0;
+    }
+
+    &:only-child {
+      border-radius: var(--kit-radius-s);
+    }
+
+    &:not(:first-child) {
+      border-left-width: 0;
+    }
+  }
+}
