@@ -19,7 +19,13 @@ import 'kitstrap2'
 またはHTMLで直接リンクします:
 
 ```html
-<link rel="stylesheet" href="node_modules/kitstrap2/dist/kitstrap2.css">
+<link rel="stylesheet" href="kitstrap2.css">
+```
+
+本番環境ではminify版も利用できます:
+
+```html
+<link rel="stylesheet" href="kitstrap2.min.css">
 ```
 
 ## クラス命名規則

@@ -19,7 +19,13 @@ import 'kitstrap2'
 Or link the CSS directly in your HTML:
 
 ```html
-<link rel="stylesheet" href="node_modules/kitstrap2/dist/kitstrap2.css">
+<link rel="stylesheet" href="kitstrap2.css">
+```
+
+For production, you can use the minified file:
+
+```html
+<link rel="stylesheet" href="kitstrap2.min.css">
 ```
 
 ## Class naming
