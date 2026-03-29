@@ -22,6 +22,12 @@ Or link the CSS directly in your HTML:
 <link rel="stylesheet" href="node_modules/kitstrap2/dist/kitstrap2.css">
 ```
 
+For a minified version, use `kitstrap2.min.css`:
+
+```html
+<link rel="stylesheet" href="node_modules/kitstrap2/dist/kitstrap2.min.css">
+```
+
 ## Class naming
 
 All kitstrap2 component classes use the `kit-` prefix. Modifier classes use the `-modifier` pattern (with a leading hyphen).

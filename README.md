@@ -18,7 +18,7 @@ npm install
 npm run build
 ```
 
-The compiled CSS is output to `dist/kitstrap2.css`.
+The compiled CSS is output to `dist/kitstrap2.css` (unminified) and `dist/kitstrap2.min.css` (minified).
 
 ## License
 

@@ -22,6 +22,12 @@ import 'kitstrap2'
 <link rel="stylesheet" href="node_modules/kitstrap2/dist/kitstrap2.css">
 ```
 
+minify版を使用する場合は `kitstrap2.min.css` を指定します:
+
+```html
+<link rel="stylesheet" href="node_modules/kitstrap2/dist/kitstrap2.min.css">
+```
+
 ## クラス命名規則
 
 kitstrap2のコンポーネントクラスは `kit-` プレフィックスを使用し、修飾子クラスは `-modifier` パターン（先頭にハイフン）を使用します。
