@@ -1,0 +1,66 @@
+// ============================================================
+// kitstrap2 — Header & Footer Components
+// .kit-header, .kit-footer
+// ============================================================
+
+@use '../mixins' as m;
+
+// ---------- Header ----------
+.kit-header {
+  display: flex;
+  align-items: center;
+  gap: var(--kit-space-s);
+  padding: var(--kit-space-s) var(--kit-space-m);
+  background: var(--kit-bg-secondary);
+  color: var(--kit-fg);
+  border-bottom: 1px solid var(--kit-border-color);
+  min-height: 40px;
+
+  &.-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  &.-flat {
+    background: transparent;
+    border-bottom-color: transparent;
+  }
+}
+
+.kit-header-title {
+  font-size: var(--kit-font-size-l);
+  font-weight: var(--kit-font-weight-bold);
+  @include m.truncate;
+}
+
+.kit-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--kit-space-xs);
+  margin-inline-start: auto;
+}
+
+// ---------- Footer ----------
+.kit-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--kit-space-s);
+  padding: var(--kit-space-xs) var(--kit-space-m);
+  background: var(--kit-bg-secondary);
+  color: var(--kit-fg-secondary);
+  border-top: 1px solid var(--kit-border-color);
+  font-size: var(--kit-font-size-s);
+  min-height: 28px;
+
+  &.-sticky {
+    position: sticky;
+    bottom: 0;
+    z-index: 100;
+  }
+
+  &.-flat {
+    background: transparent;
+    border-top-color: transparent;
+  }
+}

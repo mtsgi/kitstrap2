@@ -1,0 +1,80 @@
+// ============================================================
+// kitstrap2 — Tab Component
+// .kit-tabbar, .kit-tab
+// ============================================================
+
+@use '../variables' as v;
+@use '../mixins' as m;
+
+.kit-tabbar {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--kit-border-color);
+  background: var(--kit-bg-secondary);
+  overflow-x: auto;
+
+  // Vertical tabs (sidebar)
+  &.-vertical {
+    flex-direction: column;
+    border-bottom: none;
+    border-right: 1px solid var(--kit-border-color);
+    overflow-x: visible;
+    overflow-y: auto;
+  }
+
+  // Flat — no background
+  &.-flat {
+    background: transparent;
+  }
+
+  // Compact — reduced size for desktop OS UIs
+  &.-compact {
+    .kit-tab {
+      padding: 2px var(--kit-space-s);
+      font-size: var(--kit-font-size-s);
+    }
+  }
+}
+
+.kit-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--kit-space-xs);
+  padding: var(--kit-space-xs) var(--kit-space-m);
+  color: var(--kit-fg-secondary);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  @include m.interactive;
+  @include m.transition;
+
+  &:hover {
+    color: var(--kit-fg);
+    background: var(--kit-bg-tertiary);
+  }
+
+  &.-active {
+    color: var(--kit-color-primary);
+    border-bottom-color: var(--kit-color-primary);
+
+    .kit-tabbar.-vertical & {
+      border-bottom-color: transparent;
+      box-shadow: inset 3px 0 0 0 var(--kit-color-primary);
+    }
+  }
+
+  &.-disabled {
+    @include m.disabled;
+  }
+
+  &:focus-visible {
+    @include m.focus-ring;
+  }
+
+  // Semantic color active variants
+  @each $name, $value in v.$kit-semantic-colors {
+    &.-#{$name}.-active {
+      color: var(--kit-color-#{$name});
+      border-bottom-color: var(--kit-color-#{$name});
+    }
+  }
+}

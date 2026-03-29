@@ -1,0 +1,83 @@
+// ============================================================
+// kitstrap2 — Table Component
+// .kit-table with striped, bordered, hoverable, compact variants
+// ============================================================
+
+@use '../variables' as v;
+
+.kit-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--kit-fg);
+  font-size: var(--kit-font-size-m);
+
+  th,
+  td {
+    padding: var(--kit-space-s) var(--kit-space-m);
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--kit-border-color);
+  }
+
+  th {
+    font-weight: var(--kit-font-weight-bold);
+    background: var(--kit-bg-secondary);
+    color: var(--kit-fg);
+  }
+
+  // ---------- Striped ----------
+  &.-striped {
+    tbody tr:nth-child(even) {
+      background: var(--kit-bg-secondary);
+    }
+  }
+
+  // ---------- Bordered ----------
+  &.-bordered {
+    border: 1px solid var(--kit-border-color);
+
+    th,
+    td {
+      border: 1px solid var(--kit-border-color);
+    }
+  }
+
+  // ---------- Hoverable ----------
+  &.-hoverable {
+    tbody tr {
+      transition: background 0.15s ease;
+
+      &:hover {
+        background: var(--kit-bg-tertiary);
+      }
+    }
+  }
+
+  // ---------- Compact ----------
+  &.-compact {
+    font-size: var(--kit-font-size-s);
+
+    th,
+    td {
+      padding: 2px var(--kit-space-s);
+    }
+  }
+
+  // ---------- Semantic header colors ----------
+  @each $name, $value in v.$kit-semantic-colors {
+    &.-#{$name} {
+      th {
+        background: var(--kit-color-#{$name});
+        color: var(--kit-color-#{$name}-fg);
+        border-color: var(--kit-color-#{$name}-dark);
+      }
+    }
+  }
+}
+
+// ---------- Responsive wrapper ----------
+.kit-table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}

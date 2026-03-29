@@ -1,0 +1,67 @@
+// ============================================================
+// kitstrap2 — Link Component
+// .kit-link — styled hyperlinks
+// ============================================================
+
+@use '../variables' as v;
+@use '../functions' as f;
+@use '../mixins' as m;
+
+.kit-link {
+  color: var(--kit-color-primary);
+  text-decoration: none;
+  @include m.transition(color);
+
+  &:hover {
+    color: var(--kit-color-primary-dark);
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    @include m.focus-ring;
+    border-radius: var(--kit-radius-s);
+  }
+
+  // Muted — subtle link
+  &.-muted {
+    color: var(--kit-fg-secondary);
+
+    &:hover {
+      color: var(--kit-fg);
+    }
+  }
+
+  // Always underline
+  &.-underline {
+    text-decoration: underline;
+  }
+
+  // External link — arrow indicator
+  &.-external::after {
+    content: "\2197"; // ↗
+    margin-inline-start: 0.15em;
+    font-size: 0.85em;
+  }
+
+  // Semantic color variants
+  @each $name, $value in v.$kit-semantic-colors {
+    &.-#{$name} {
+      color: var(--kit-color-#{$name});
+
+      &:hover {
+        color: var(--kit-color-#{$name}-dark);
+      }
+    }
+  }
+
+  // Named color variants
+  @each $name, $value in v.$kit-named-colors {
+    &.-#{$name} {
+      color: var(--kit-color-#{$name});
+
+      &:hover {
+        color: #{f.kit-darken($value, 15%)};
+      }
+    }
+  }
+}

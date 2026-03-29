@@ -1,0 +1,39 @@
+// ============================================================
+// kitstrap2 — Box Component
+// .kit-box — generic bordered content box
+// ============================================================
+
+@use '../variables' as v;
+@use '../functions' as f;
+
+.kit-box {
+  display: block;
+  padding: var(--kit-space-m);
+  border: 1px solid var(--kit-border-color);
+  border-radius: var(--kit-radius-s);
+  background: var(--kit-bg);
+  color: var(--kit-fg);
+
+  // Rounded
+  &.-rounded {
+    border-radius: var(--kit-radius-l);
+  }
+
+  // Flat — no border
+  &.-flat {
+    border-color: transparent;
+  }
+
+  // Raised — shadow
+  &.-raised {
+    box-shadow: var(--kit-shadow-3);
+  }
+
+  // Semantic color variants
+  @each $name, $value in v.$kit-semantic-colors {
+    &.-#{$name} {
+      border-color: var(--kit-color-#{$name});
+      background: color-mix(in srgb, var(--kit-color-#{$name}) 8%, var(--kit-bg));
+    }
+  }
+}

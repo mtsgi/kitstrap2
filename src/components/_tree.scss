@@ -1,0 +1,113 @@
+// ============================================================
+// kitstrap2 — Tree View Component
+// .kit-tree, .kit-tree-item, .kit-tree-label
+// File explorer style tree using native <details>/<summary>
+// ============================================================
+
+@use '../mixins' as m;
+
+.kit-tree {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: var(--kit-font-size-m);
+  color: var(--kit-fg);
+
+  // Nested trees — indent
+  .kit-tree {
+    padding-inline-start: var(--kit-space-m);
+    border-inline-start: 1px solid var(--kit-border-color);
+    margin-inline-start: var(--kit-space-s);
+  }
+
+  // Compact — reduced spacing for desktop OS UIs
+  &.-compact {
+    font-size: var(--kit-font-size-s);
+
+    .kit-tree-label {
+      padding: 1px var(--kit-space-xs);
+    }
+
+    .kit-tree {
+      padding-inline-start: var(--kit-space-s);
+      margin-inline-start: var(--kit-space-xs);
+    }
+  }
+}
+
+.kit-tree-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.kit-tree-label {
+  display: flex;
+  align-items: center;
+  gap: var(--kit-space-xs);
+  padding: 2px var(--kit-space-s);
+  border-radius: var(--kit-radius-s);
+  text-decoration: none;
+  color: var(--kit-fg);
+  @include m.interactive;
+  @include m.transition(background);
+
+  &:hover {
+    background: var(--kit-bg-tertiary);
+  }
+
+  &.-selected {
+    background: color-mix(in srgb, var(--kit-color-primary) 15%, transparent);
+    color: var(--kit-color-primary);
+  }
+
+  &.-disabled {
+    @include m.disabled;
+  }
+}
+
+// ---------- <details>/<summary> integration ----------
+details.kit-tree-node {
+  > summary {
+    display: flex;
+    align-items: center;
+    gap: var(--kit-space-xs);
+    padding: 2px var(--kit-space-s);
+    border-radius: var(--kit-radius-s);
+    list-style: none;
+    color: var(--kit-fg);
+    @include m.interactive;
+    @include m.transition(background);
+
+    &:hover {
+      background: var(--kit-bg-tertiary);
+    }
+
+    // Hide default marker
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::marker {
+      content: "";
+    }
+
+    // Expand indicator
+    &::before {
+      content: "\25B6"; // ▶
+      font-size: 0.625em;
+      transition: transform 0.15s ease;
+      display: inline-block;
+    }
+  }
+
+  &[open] > summary::before {
+    transform: rotate(90deg);
+  }
+
+  &.-selected > summary {
+    background: color-mix(in srgb, var(--kit-color-primary) 15%, transparent);
+    color: var(--kit-color-primary);
+  }
+}

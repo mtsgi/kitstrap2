@@ -1,0 +1,24 @@
+// ============================================================
+// kitstrap2 — Container Component
+// .kit-container with responsive max-widths and .-fluid
+// ============================================================
+
+@use '../variables' as v;
+@use '../mixins' as m;
+
+.kit-container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--kit-space-m);
+
+  @each $name, $width in v.$kit-container-widths {
+    @include m.breakpoint($name) {
+      max-width: $width;
+    }
+  }
+
+  // Fluid variant — no max-width
+  &.-fluid {
+    max-width: none;
+  }
+}

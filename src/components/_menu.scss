@@ -1,0 +1,85 @@
+// ============================================================
+// kitstrap2 — Menu Component
+// .kit-menu, .kit-menu-item, .kit-menu-separator, .kit-menu-header
+// Context menus and dropdown menus
+// ============================================================
+
+@use '../variables' as v;
+@use '../mixins' as m;
+
+.kit-menu {
+  display: flex;
+  flex-direction: column;
+  min-width: 160px;
+  padding: var(--kit-space-xs) 0;
+  background: var(--kit-bg);
+  color: var(--kit-fg);
+  border: 1px solid var(--kit-border-color);
+  border-radius: var(--kit-radius-s);
+  box-shadow: var(--kit-shadow-4);
+
+  // Compact — tighter for desktop OS UIs
+  &.-compact {
+    min-width: 120px;
+    padding: 2px 0;
+
+    .kit-menu-item {
+      padding: 2px var(--kit-space-s);
+      font-size: var(--kit-font-size-s);
+    }
+
+    .kit-menu-header {
+      padding: 2px var(--kit-space-s);
+      font-size: var(--kit-font-size-xs);
+    }
+  }
+}
+
+.kit-menu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--kit-space-s);
+  padding: var(--kit-space-xs) var(--kit-space-m);
+  color: var(--kit-fg);
+  text-decoration: none;
+  @include m.interactive;
+  @include m.transition(background);
+
+  &:hover {
+    background: var(--kit-color-primary);
+    color: var(--kit-color-primary-fg);
+  }
+
+  &.-active {
+    background: color-mix(in srgb, var(--kit-color-primary) 15%, transparent);
+    color: var(--kit-color-primary);
+  }
+
+  &.-disabled {
+    @include m.disabled;
+  }
+
+  &.-danger {
+    color: var(--kit-color-danger);
+
+    &:hover {
+      background: var(--kit-color-danger);
+      color: var(--kit-color-danger-fg);
+    }
+  }
+}
+
+.kit-menu-separator {
+  height: 1px;
+  margin: var(--kit-space-xs) 0;
+  background: var(--kit-border-color);
+}
+
+.kit-menu-header {
+  padding: var(--kit-space-xs) var(--kit-space-m);
+  font-size: var(--kit-font-size-xs);
+  font-weight: var(--kit-font-weight-bold);
+  color: var(--kit-fg-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
