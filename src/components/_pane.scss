@@ -1,0 +1,33 @@
+// ============================================================
+// kitstrap2 — Pane Component
+// .kit-pane-group, .kit-pane — split panel layout
+// ============================================================
+
+.kit-pane-group {
+  display: flex;
+  width: 100%;
+  min-height: 0;
+
+  // Vertical split (column)
+  &.-vertical {
+    flex-direction: column;
+  }
+}
+
+.kit-pane {
+  flex: 1 1 0%;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+
+  // Resizable pane
+  &.-resizable {
+    resize: both;
+    overflow: auto;
+  }
+
+  // Fixed-size pane (use with explicit width/height)
+  &.-fixed {
+    flex: none;
+  }
+}

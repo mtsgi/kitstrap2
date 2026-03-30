@@ -64,3 +64,110 @@ html.dark body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+/* ============================================================
+ * Override VitePress .vp-doc scoped styles for kitstrap2 components
+ *
+ * VitePress applies opinionated styles under .vp-doc (a, button,
+ * th, td, input, textarea, etc.) that break kitstrap2 components
+ * shown in preview blocks.  Higher specificity (.vp-doc .kit-*)
+ * restores the original kitstrap2 values without !important.
+ * ============================================================ */
+
+/* ---------- Link ---------- */
+.vp-doc a {
+  color: var(--kit-color-primary);
+  text-decoration: none;
+}
+.vp-doc a:hover {
+  color: var(--kit-color-primary-dark);
+  text-decoration: underline;
+}
+
+/* ---------- Button (.kit-button) ---------- */
+.vp-doc .kit-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--kit-space-xs);
+  padding: 2px 8px;
+  border: 1px solid var(--kit-border-color);
+  border-radius: var(--kit-radius-s);
+  background: var(--kit-bg-secondary);
+  color: var(--kit-fg);
+  font-size: var(--kit-font-size-m);
+  line-height: var(--kit-line-height-m);
+  text-decoration: none;
+  vertical-align: middle;
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1px 1px 0 rgba(255, 255, 255, 0.6);
+}
+.vp-doc .kit-button:hover {
+  background: var(--kit-bg);
+  color: var(--kit-fg);
+  text-decoration: none;
+  box-shadow: var(--kit-shadow-2);
+}
+.vp-doc .kit-button:active {
+  transform: translateY(1px);
+  box-shadow: var(--kit-shadow-1);
+}
+
+/* ---------- Form (.kit-textbox) ---------- */
+.vp-doc .kit-textbox {
+  display: inline-block;
+  padding: var(--kit-space-xs) var(--kit-space-s);
+  border: 1px solid var(--kit-border-color);
+  border-radius: var(--kit-radius-s);
+  background: var(--kit-bg);
+  color: var(--kit-fg);
+  font-size: var(--kit-font-size-m);
+  font-family: var(--kit-font-family);
+  line-height: var(--kit-line-height-m);
+  width: auto;
+  box-sizing: border-box;
+  outline: none;
+  box-shadow: 0 0 0 1px transparent;
+}
+.vp-doc .kit-textbox:focus {
+  box-shadow: 0 0 0 3px var(--kit-focus-ring);
+  border-color: var(--kit-color-primary);
+}
+
+/* ---------- Breadcrumb links (.kit-breadcrumb-item a) ---------- */
+.vp-doc .kit-breadcrumb-item a {
+  color: var(--kit-color-primary);
+  text-decoration: none;
+}
+.vp-doc .kit-breadcrumb-item a:hover {
+  text-decoration: underline;
+}
+.vp-doc .kit-breadcrumb-item:last-child a {
+  color: var(--kit-fg);
+  pointer-events: none;
+  text-decoration: none;
+}
+
+/* ---------- Navbar (.kit-navbar-brand, .kit-navbar-item) ---------- */
+.vp-doc .kit-navbar-brand,
+.vp-doc .kit-navbar-item {
+  color: var(--kit-fg);
+  text-decoration: none;
+}
+.vp-doc .kit-navbar-item:hover {
+  color: var(--kit-fg);
+  text-decoration: none;
+}
+.vp-doc .kit-navbar-item.-active {
+  color: var(--kit-color-primary);
+}
+
+/* ---------- Menu (.kit-menu-item) ---------- */
+.vp-doc .kit-menu-item {
+  color: var(--kit-fg);
+  text-decoration: none;
+}
+.vp-doc .kit-menu-item:hover {
+  color: var(--kit-color-primary-fg);
+  text-decoration: none;
+}

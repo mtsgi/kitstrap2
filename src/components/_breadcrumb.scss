@@ -1,0 +1,49 @@
+// ============================================================
+// kitstrap2 — Breadcrumb Component
+// .kit-breadcrumb, .kit-breadcrumb-item
+// ============================================================
+
+@use '../mixins' as m;
+
+.kit-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: var(--kit-space-xs) 0;
+  font-size: var(--kit-font-size-s);
+  color: var(--kit-fg-secondary);
+  list-style: none;
+}
+
+.kit-breadcrumb-item {
+  display: inline-flex;
+  align-items: center;
+
+  a {
+    color: var(--kit-color-primary);
+    text-decoration: none;
+    @include m.transition(color);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // Separator
+  &:not(:first-child)::before {
+    content: "/";
+    margin: 0 var(--kit-space-xs);
+    color: var(--kit-fg-tertiary);
+  }
+
+  // Last item — current page
+  &:last-child {
+    color: var(--kit-fg);
+    font-weight: var(--kit-font-weight-bold);
+
+    a {
+      color: var(--kit-fg);
+      pointer-events: none;
+    }
+  }
+}

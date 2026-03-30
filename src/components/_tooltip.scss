@@ -1,0 +1,59 @@
+// ============================================================
+// kitstrap2 — Tooltip Component
+// CSS-only tooltips using [data-kit-tooltip] attribute
+// ============================================================
+
+@use '../mixins' as m;
+
+[data-kit-tooltip] {
+  position: relative;
+
+  &::after {
+    content: attr(data-kit-tooltip);
+    position: absolute;
+    z-index: 1000;
+    padding: var(--kit-space-xs) var(--kit-space-s);
+    border-radius: var(--kit-radius-s);
+    background: var(--kit-fg);
+    color: var(--kit-bg);
+    font-size: var(--kit-font-size-xs);
+    font-weight: var(--kit-font-weight-normal);
+    line-height: var(--kit-line-height-s);
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+
+    // Default position: top
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+
+  // Position variants
+  &.-bottom::after {
+    bottom: auto;
+    top: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &.-left::after {
+    bottom: auto;
+    top: 50%;
+    left: auto;
+    right: calc(100% + 6px);
+    transform: translateY(-50%);
+  }
+
+  &.-right::after {
+    bottom: auto;
+    top: 50%;
+    left: calc(100% + 6px);
+    transform: translateY(-50%);
+  }
+}

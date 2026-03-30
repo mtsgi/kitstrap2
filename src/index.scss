@@ -16,6 +16,21 @@
 @use 'components/form';
 @use 'components/badge';
 @use 'components/notice';
+@use 'components/container';
+@use 'components/box';
+@use 'components/pane';
+@use 'components/header';
+@use 'components/navbar';
+@use 'components/tab';
+@use 'components/toolbar';
+@use 'components/menu';
+@use 'components/breadcrumb';
+@use 'components/table';
+@use 'components/tree';
+@use 'components/tooltip';
+@use 'components/link';
+@use 'components/progress';
+@use 'components/spinner';
 
 // Utilities
 @use 'utilities/display';

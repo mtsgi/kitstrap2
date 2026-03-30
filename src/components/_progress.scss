@@ -1,0 +1,60 @@
+// ============================================================
+// kitstrap2 — Progress Component
+// .kit-progress, .kit-progress-bar
+// ============================================================
+
+@use '../variables' as v;
+@use '../mixins' as m;
+
+.kit-progress {
+  display: flex;
+  width: 100%;
+  height: 8px;
+  background: var(--kit-bg-tertiary);
+  border-radius: var(--kit-radius-full);
+  overflow: hidden;
+
+  // Sizes
+  &.-small {
+    height: 4px;
+  }
+
+  &.-large {
+    height: 16px;
+  }
+}
+
+.kit-progress-bar {
+  height: 100%;
+  background: var(--kit-color-primary);
+  border-radius: var(--kit-radius-full);
+  @include m.transition(width, 0.3s);
+
+  // Indeterminate — animated
+  &.-indeterminate {
+    width: 30% !important;
+    animation: kit-progress-indeterminate 1.5s ease-in-out infinite;
+  }
+
+  // Semantic color variants
+  @each $name, $value in v.$kit-semantic-colors {
+    &.-#{$name} {
+      background: var(--kit-color-#{$name});
+    }
+  }
+}
+
+@keyframes kit-progress-indeterminate {
+  0% {
+    margin-inline-start: 0;
+    width: 30%;
+  }
+  50% {
+    margin-inline-start: 40%;
+    width: 50%;
+  }
+  100% {
+    margin-inline-start: 100%;
+    width: 30%;
+  }
+}

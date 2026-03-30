@@ -1,0 +1,75 @@
+// ============================================================
+// kitstrap2 — Toolbar Component
+// .kit-toolbar, .kit-toolbar-item, .kit-toolbar-separator
+// ============================================================
+
+@use '../mixins' as m;
+
+.kit-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: var(--kit-space-xs) var(--kit-space-s);
+  background: var(--kit-bg-secondary);
+  border-bottom: 1px solid var(--kit-border-color);
+
+  // Flat — transparent background
+  &.-flat {
+    background: transparent;
+    border-bottom-color: transparent;
+  }
+
+  // Compact — tighter spacing for desktop OS UIs
+  &.-compact {
+    padding: 1px var(--kit-space-xs);
+    gap: 1px;
+
+    .kit-toolbar-item {
+      padding: 1px var(--kit-space-xs);
+      font-size: var(--kit-font-size-s);
+    }
+  }
+}
+
+.kit-toolbar-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--kit-space-xs);
+  padding: var(--kit-space-xs) var(--kit-space-s);
+  border: none;
+  border-radius: var(--kit-radius-s);
+  background: transparent;
+  color: var(--kit-fg);
+  text-decoration: none;
+  @include m.interactive;
+  @include m.transition;
+
+  &:hover {
+    background: var(--kit-bg-tertiary);
+  }
+
+  &:active {
+    background: var(--kit-bg);
+  }
+
+  &.-active {
+    background: var(--kit-bg-tertiary);
+    color: var(--kit-color-primary);
+  }
+
+  &.-disabled {
+    @include m.disabled;
+  }
+
+  &:focus-visible {
+    @include m.focus-ring;
+  }
+}
+
+.kit-toolbar-separator {
+  width: 1px;
+  align-self: stretch;
+  margin: var(--kit-space-xs) 2px;
+  background: var(--kit-border-color);
+}
