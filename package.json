@@ -1,16 +1,40 @@
 {
   "name": "kitstrap2",
   "version": "2.0.0",
+  "description": "A modern successor to kitstrap, written in SCSS and built with Vite",
   "type": "module",
   "style": "./dist/kitstrap2.css",
   "exports": {
-    ".": "./dist/kitstrap2.css"
+    ".": "./dist/kitstrap2.css",
+    "./min": "./dist/kitstrap2.min.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
+  "keywords": [
+    "css",
+    "framework",
+    "scss",
+    "dark-mode",
+    "css-custom-properties",
+    "lightweight",
+    "ui"
+  ],
+  "author": "mtsgi",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mtsgi/kitstrap2.git"
+  },
+  "homepage": "https://mtsgi.github.io/kitstrap2/",
+  "bugs": {
+    "url": "https://github.com/mtsgi/kitstrap2/issues"
+  },
   "scripts": {
     "build": "vite build && vite build --mode minify",
+    "prepublishOnly": "npm run build",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
